@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WhatsConsole
 {
@@ -7,17 +8,24 @@ namespace WhatsConsole
         static void Main(string[] args)
         {
             
-            Contato ctt = new Contato();
-            
-            ctt.Nome = "hittoxy";
-            ctt.Telefone = "+55 11979788809";
+            Contato ctt = new Contato("hittoxy", "+55 11-989877709");
 
             Agenda agenda = new Agenda();
             
             agenda.Cadastrar(ctt);
 
+            List<Contato> Lista = agenda.Listar();
+
+            foreach(Contato c in Lista)
+            {
+                Console.WriteLine($"Nome: {ctt.Nome} - Numero: {ctt.Telefone}");
+            }
+
             Mensagem msg = new Mensagem();
             msg.Enviar(ctt);
+
+            
+
         }
     }
 }

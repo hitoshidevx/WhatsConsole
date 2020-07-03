@@ -7,8 +7,8 @@ namespace WhatsConsole
     public class Agenda : IAgenda
     {
 
-        List<Contato> contatos { get; set; }
-        private const string PATH = "Database/agenda.csv";
+        public List<Contato> contatos { get; set; }
+        private const string PATH = "Database/contatos.csv";
 
         public Agenda()
         {
@@ -26,30 +26,20 @@ namespace WhatsConsole
             }
 
         }
-        public void Cadastrar(Contato ctts)
+        public void Cadastrar(Contato ctt)
         {
-            var line = new string[] { PrepararLinha(ctts) };
+            var line = new string[] { PrepararLinha(ctt) };
             File.AppendAllLines(PATH, line);
-    
         }
+
         public List<Contato> Listar()
         {
-            List<Contato> contatos = new List<Contato>();
+            List<Contato> lista = new List<Contato>();
 
             string[] linhas = File.ReadAllLines(PATH);
             
-            foreach(string linha in linhas){
-
-                string[] dado = linha.Split(";");
-
-                Contato ctt  = new Contato();
-                ctt.Nome     = Separar(dado[1]);
-                ctt.Telefone = Separar(dado[1]);
-   
-                contatos.Add(ctt);
-            }
-            contatos = contatos.OrderBy(y => y.Nome).ToList();
-            return contatos;
+            lista = lista.OrderBy(y => y.Nome).ToList();
+            return lista;
         }
 
         public void Excluir(Contato contact, string _term)
@@ -72,16 +62,6 @@ namespace WhatsConsole
             // Reescrevi o csv do zero
             ReescreverCSV(lines);
         }
-        private void ReescreverCSV(List<string> lines){
-            // Reescrevi o csv do zero
-            using(StreamWriter output = new StreamWriter(PATH))
-            {
-                foreach(string ln in lines)
-                {
-                    output.Write(ln + "\n");
-                }
-            }   
-        }
         public void RemoverLinhas(List<string> lines, string _term){
 
             using (StreamReader file = new StreamReader(PATH)){
@@ -102,6 +82,17 @@ namespace WhatsConsole
         private string PrepararLinha(Contato ctts)
         {
             return $"Nome: {ctts.Nome} ; Telefone: {ctts.Telefone}";
+        }
+        
+        private void ReescreverCSV(List<string> lines){
+            // Reescrevi o csv do zero
+            using(StreamWriter output = new StreamWriter(PATH))
+            {
+                foreach(string ln in lines)
+                {
+                    output.Write(ln + "\n");
+                }
+            }   
         }
 
     }
