@@ -7,9 +7,14 @@ namespace WhatsConsole
         public string Telefone { get; set; }
         public string Contact { get; set; }
 
-        public Contato(string _contact)
-        {
+        public Contato(){
             
+        }
+        public Contato(string _contact, string _nome, string _telefone)
+        {
+
+            this.Nome = _nome;
+            this.Telefone = _telefone;
             this.Contact = _contact;
 
         }

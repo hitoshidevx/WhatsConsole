@@ -5,12 +5,11 @@ namespace WhatsConsole
         
         public string Texto { get; set; }
 
-        public Contato Destinatário { get; set; }
+        public string Destinatário { get; set; }
 
         public string Enviar(string _contato)
         {
-
-            return "A mensagem foi enviada para {_contato}";
+            return "A mensagem foi enviada para {}";
         }
 
     }

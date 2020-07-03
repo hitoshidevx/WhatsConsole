@@ -6,7 +6,12 @@ namespace WhatsConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+            Contato ctt = new Contato();
+
+            Agenda agenda = new Agenda();
+
+            agenda.Cadastrar(ctt);
         }
     }
 }

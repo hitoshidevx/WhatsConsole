@@ -1,0 +1,13 @@
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.exe
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.deps.json
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.runtimeconfig.json
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.runtimeconfig.dev.json
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.dll
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\bin\Debug\netcoreapp3.1\WhatsConsole.pdb
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.csprojAssemblyReference.cache
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.csproj.CoreCompileInputs.cache
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.AssemblyInfoInputs.cache
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.AssemblyInfo.cs
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.dll
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.pdb
+C:\Users\Yokogawa\Documents\Projetos (treino)\WhatsConsole\obj\Debug\netcoreapp3.1\WhatsConsole.genruntimeconfig.cache

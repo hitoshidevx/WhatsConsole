@@ -12,6 +12,7 @@ namespace WhatsConsole
         public Agenda()
         {
 
+            //-------------------------------------
             string folder = PATH.Split('/')[0];
 
             if(!Directory.Exists(folder)){
@@ -19,15 +20,15 @@ namespace WhatsConsole
             }
             //-------------------------------------
 
-            if(File.Exists(folder)){
+            if(File.Exists(PATH)){
                 File.Create(PATH).Close();
             }
 
         }
 
-        public void Cadastrar(Contato contact)
+        public void Cadastrar(Contato contatos)
         {
-            var linha = new string[] { PrepararLinha(contact) };
+            var linha = new string[] { PrepararLinha(contatos) };
             File.AppendAllLines(PATH, linha);
     
         }
@@ -75,9 +76,9 @@ namespace WhatsConsole
             }   
         }
 
-        private string PrepararLinha(Contato contact)
+        private string PrepararLinha(Contato contatos)
         {
-            return $"{contact}";
+            return $"{contatos}";
         }
 
     }
