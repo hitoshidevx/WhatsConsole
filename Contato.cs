@@ -10,12 +10,11 @@ namespace WhatsConsole
         public Contato(){
             
         }
-        public Contato(string _contact, string _nome, string _telefone)
+        public Contato(string _nome, string _telefone)
         {
 
             this.Nome = _nome;
             this.Telefone = _telefone;
-            this.Contact = _contact;
 
         }
 

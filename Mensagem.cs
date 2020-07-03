@@ -1,3 +1,5 @@
+using System;
+
 namespace WhatsConsole
 {
     public class Mensagem
@@ -7,9 +9,12 @@ namespace WhatsConsole
 
         public string Destinatário { get; set; }
 
-        public string Enviar(string _contato)
+        public void Enviar(Contato ctts)
         {
-            return "A mensagem foi enviada para {}";
+            Console.WriteLine($"Que mensagem gostaria de enviar para {ctts.Nome}?");
+            Texto = Console.ReadLine();
+            Console.WriteLine($"Mensagem: \n{Texto} enviada para {ctts.Nome}");
+
         }
 
     }

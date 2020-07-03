@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace WhatsConsole
 {
     public class Agenda : IAgenda
     {
 
-        List<Contato> contatos = new List<Contato>();
+        List<Contato> contatos;
         private const string PATH = "Database/agenda.csv";
 
         public Agenda()
@@ -25,33 +26,60 @@ namespace WhatsConsole
             }
 
         }
+        private void ReescreverCSV(List<string> lines){
+            // Reescrevi o csv do zero
+            using(StreamWriter output = new StreamWriter(PATH))
+            {
+                foreach(string ln in lines)
+                {
+                    output.Write(ln + "\n");
+                }
+            }   
+        }
 
-        public void Cadastrar(Contato contatos)
+        public void RemoverLinhas(List<string> lines, string _term){
+
+            using (StreamReader file = new StreamReader(PATH)){
+
+                string line;
+                while ( (line = file.ReadLine()) != null){ 
+                    lines.Add(line);
+                }
+                lines.RemoveAll(x => x.Contains(_term));
+            }
+
+        }
+
+        public string Separar(string dado){
+            return dado.Split('=')[1];
+        }
+
+        public void Cadastrar(Contato ctts)
         {
-            var linha = new string[] { PrepararLinha(contatos) };
-            File.AppendAllLines(PATH, linha);
+            var line = new string[] { PrepararLinha(ctts) };
+            File.AppendAllLines(PATH, line);
     
         }
 
         public void Excluir(Contato contact, string _term)
         {
-            List<string> linhas = new List<string>();
+            List<string> lines = new List<string>();
 
             // Utilizei a bliblioteca StreamReader para ler o .csv
-            using(StreamReader arquivo = new StreamReader(PATH))
+            using(StreamReader file = new StreamReader(PATH))
             {
-                string linha;
-                while((linha = arquivo.ReadLine()) != null)
+                string line;
+                while((line = file.ReadLine()) != null)
                 {
-                    linhas.Add(linha);
+                    lines.Add(line);
                 }
             }
 
             // Removi as linhas que tiverem o termo passado como argumento
-            linhas.RemoveAll(l => l.Contains(_term));
+            lines.RemoveAll(l => l.Contains(_term));
 
             // Reescrevi o csv do zero
-            ReescreverCSV(linhas);
+            ReescreverCSV(lines);
         }
 
         public void Listar()
@@ -65,20 +93,10 @@ namespace WhatsConsole
             }
         }
 
-        private void ReescreverCSV(List<string> lines){
-            // Reescrevi o csv do zero
-            using(StreamWriter output = new StreamWriter(PATH))
-            {
-                foreach(string ln in lines)
-                {
-                    output.Write(ln + "\n");
-                }
-            }   
-        }
 
-        private string PrepararLinha(Contato contatos)
+        private string PrepararLinha(Contato ctts)
         {
-            return $"{contatos}";
+            return $"Nome: {ctts.Nome}\nTelefone: {ctts.Telefone}";
         }
 
     }
