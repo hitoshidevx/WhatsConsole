@@ -13,7 +13,7 @@ namespace WhatsConsole
         {
             Console.WriteLine($"Que mensagem gostaria de enviar para {ctts.Nome}?");
             Texto = Console.ReadLine();
-            Console.WriteLine($"Mensagem: \n{Texto} enviada para {ctts.Nome}");
+            Console.WriteLine($"Mensagem: {Texto} enviada para {ctts.Nome}!");
 
         }
 

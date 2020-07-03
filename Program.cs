@@ -7,13 +7,17 @@ namespace WhatsConsole
         static void Main(string[] args)
         {
             
-            Agenda agenda = new Agenda();
-            Contato c1    = new Contato("hitoxxy", "+55 11989877709");
-            Contato c2    = new Contato("hideiki", "+55 11281928728");
-            Contato c3    = new Contato("killua", "+55 11283799153");
-            Contato c4    = new Contato("alphonse", "+55 11128738189");
+            Contato ctt = new Contato();
             
-            agenda.Cadastrar(c4);
+            ctt.Nome = "hittoxy";
+            ctt.Telefone = "+55 11979788809";
+
+            Agenda agenda = new Agenda();
+            
+            agenda.Cadastrar(ctt);
+
+            Mensagem msg = new Mensagem();
+            msg.Enviar(ctt);
         }
     }
 }

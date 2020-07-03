@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace WhatsConsole
 {
     public interface IAgenda
@@ -5,7 +7,7 @@ namespace WhatsConsole
 
         void Cadastrar(Contato contatos);
         void Excluir(Contato contact, string _term);
-        void Listar();
+        List<Contato> Listar();
 
     }
 }

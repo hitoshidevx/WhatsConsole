@@ -1,6 +1,6 @@
 namespace WhatsConsole
 {
-    public class Contato
+    public class Contato : Agenda
     {
         
         public string Nome { get; set; }
