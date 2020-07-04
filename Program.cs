@@ -8,7 +8,7 @@ namespace WhatsConsole
         static void Main(string[] args)
         {
             
-            Contato ctt = new Contato("hittoxy", "+55 11-989877709");
+            Contato ctt = new Contato("killua", "+55 11-979788810");
 
             Agenda agenda = new Agenda();
             

@@ -7,41 +7,31 @@ namespace WhatsConsole
     public class Agenda : IAgenda
     {
 
-        public List<Contato> contatos { get; set; }
+        public List<Contato> contatos;
         private const string PATH = "Database/contatos.csv";
 
-        public Agenda()
-        {
+        //Deu errado :(
+        // public Agenda()
+        // {
 
-            //-------------------------------------
-            string folder = PATH.Split('/')[0];
+        //     //-------------------------------------
+        //     string folder = PATH.Split('/')[0];
 
-            if(!Directory.Exists(folder)){
-                Directory.CreateDirectory(folder);
-            }
-            //-------------------------------------
+        //     if(!Directory.Exists(folder)){
+        //         Directory.CreateDirectory(folder);
+        //     }
+        //     //-------------------------------------
 
-            if(File.Exists(PATH)){
-                File.Create(PATH).Close();
-            }
+        //     if(File.Exists(PATH)){
+        //         File.Create(PATH).Close();
+        //     }
 
-        }
+        // }
         public void Cadastrar(Contato ctt)
         {
             var line = new string[] { PrepararLinha(ctt) };
             File.AppendAllLines(PATH, line);
         }
-
-        public List<Contato> Listar()
-        {
-            List<Contato> lista = new List<Contato>();
-
-            string[] linhas = File.ReadAllLines(PATH);
-            
-            lista = lista.OrderBy(y => y.Nome).ToList();
-            return lista;
-        }
-
         public void Excluir(Contato contact, string _term)
         {
             List<string> lines = new List<string>();
@@ -62,26 +52,20 @@ namespace WhatsConsole
             // Reescrevi o csv do zero
             ReescreverCSV(lines);
         }
-        public void RemoverLinhas(List<string> lines, string _term){
 
-            using (StreamReader file = new StreamReader(PATH)){
-
-                string line;
-                while ( (line = file.ReadLine()) != null){ 
-                    lines.Add(line);
-                }
-                lines.RemoveAll(x => x.Contains(_term));
-            }
-
-        }
-
-        public string Separar(string dado){
-            return dado.Split('=')[1];
-        }
-
-        private string PrepararLinha(Contato ctts)
+        public List<Contato> Listar()
         {
-            return $"Nome: {ctts.Nome} ; Telefone: {ctts.Telefone}";
+            List<Contato> lista = new List<Contato>();
+
+            string[] linhas = File.ReadAllLines(PATH);
+            
+            lista = lista.OrderBy(x => x    .Nome).ToList();
+            return lista;
+        }   
+
+        private string PrepararLinha(Contato c)
+        {
+            return $"Nome: {c.Nome} ; Telefone: {c.Telefone}";
         }
         
         private void ReescreverCSV(List<string> lines){
