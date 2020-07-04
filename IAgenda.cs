@@ -6,7 +6,7 @@ namespace WhatsConsole
     {
 
         void Cadastrar(Contato contatos);
-        void Excluir(Contato contact, string _term);
+        void Excluir(string _term);
         List<Contato> Listar();
 
     }

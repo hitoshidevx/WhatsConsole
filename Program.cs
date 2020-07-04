@@ -8,11 +8,12 @@ namespace WhatsConsole
         static void Main(string[] args)
         {
             
-            Contato ctt = new Contato("killua", "+55 11-979788810");
+            Contato ctt = new Contato("obito", "+55 11-987654321");
 
             Agenda agenda = new Agenda();
             
             agenda.Cadastrar(ctt);
+            // agenda.Excluir("killua");
 
             List<Contato> Lista = agenda.Listar();
 
@@ -22,7 +23,7 @@ namespace WhatsConsole
             }
 
             Mensagem msg = new Mensagem();
-            msg.Enviar(ctt);
+            // msg.Enviar(ctt);
 
             
 

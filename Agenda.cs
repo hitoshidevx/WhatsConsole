@@ -10,29 +10,32 @@ namespace WhatsConsole
         public List<Contato> contatos;
         private const string PATH = "Database/contatos.csv";
 
-        //Deu errado :(
-        // public Agenda()
-        // {
+        public Agenda()
+        {
 
-        //     //-------------------------------------
-        //     string folder = PATH.Split('/')[0];
+        //Era para ser um método que criava o folder 'database' e o file 'contatos', mas ele acabou bugando minha aplicação.
 
-        //     if(!Directory.Exists(folder)){
-        //         Directory.CreateDirectory(folder);
-        //     }
-        //     //-------------------------------------
-
-        //     if(File.Exists(PATH)){
-        //         File.Create(PATH).Close();
-        //     }
-
-        // }
+        }
+        
+        /// <summary>
+        /// Faz o cadastro do contato na lista do csv
+        /// </summary>
+        /// <returns>
+        /// Nada, pois a tipagem é void.
+        /// </returns>
         public void Cadastrar(Contato ctt)
         {
             var line = new string[] { PrepararLinha(ctt) };
             File.AppendAllLines(PATH, line);
         }
-        public void Excluir(Contato contact, string _term)
+
+        /// <summary>
+        /// Faz a exclusão do contato na lista do csv
+        /// </summary>
+        /// <returns>
+        /// Nada, pois a tipagem é void.
+        /// </returns>
+        public void Excluir(string _term)
         {
             List<string> lines = new List<string>();
 
@@ -53,6 +56,13 @@ namespace WhatsConsole
             ReescreverCSV(lines);
         }
 
+        /// <summary>
+        /// Lista no program a lista de contatos do arquivo .csv
+        /// </summary>
+        /// <returns>
+        /// Retorna a lista no program
+        /// </returns>
+        /// 
         public List<Contato> Listar()
         {
             List<Contato> lista = new List<Contato>();
@@ -63,6 +73,12 @@ namespace WhatsConsole
             return lista;
         }   
 
+        /// <summary>
+        /// Prepara a linha com os atributos propriamente atribuídos no program para o arquivo .csv
+        /// </summary>
+        /// <returns>
+        /// Retorna os atributos do contato
+        /// </returns>
         private string PrepararLinha(Contato c)
         {
             return $"Nome: {c.Nome} ; Telefone: {c.Telefone}";
