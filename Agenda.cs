@@ -62,15 +62,19 @@ namespace WhatsConsole
         /// <returns>
         /// Retorna a lista no program
         /// </returns>
-        /// 
+        
         public List<Contato> Listar()
         {
-            List<Contato> lista = new List<Contato>();
-
-            string[] linhas = File.ReadAllLines(PATH);
             
-            lista = lista.OrderBy(x => x    .Nome).ToList();
-            return lista;
+            string[] linhas = File.ReadAllLines(PATH);
+            foreach(string linha in linhas){
+
+                string[] dado = linha.Split(";");
+                contatos.Add(new Contato( dado[0], dado[1] ) );
+
+            }
+            contatos = contatos.OrderBy( x => x.Nome ).ToList();
+            return contatos;
         }   
 
         /// <summary>
@@ -81,7 +85,7 @@ namespace WhatsConsole
         /// </returns>
         private string PrepararLinha(Contato c)
         {
-            return $"Nome: {c.Nome} ; Telefone: {c.Telefone}";
+            return $"Nome:{c.Nome};Telefone:{c.Telefone}";
         }
         
         private void ReescreverCSV(List<string> lines){

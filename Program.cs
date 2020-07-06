@@ -8,21 +8,19 @@ namespace WhatsConsole
         static void Main(string[] args)
         {
             
-            Contato ctt = new Contato("obito", "+55 11-987654321");
+            Contato ctt = new Contato("gon", "+55 11-979788801");
 
             Agenda agenda = new Agenda();
             
             agenda.Cadastrar(ctt);
-            // agenda.Excluir("killua");
+            agenda.Excluir("gon");
 
-            List<Contato> Lista = agenda.Listar();
-
-            foreach(Contato c in Lista)
+            foreach( Contato item in agenda.Listar() )
             {
-                Console.WriteLine($"Nome: {ctt.Nome} - Numero: {ctt.Telefone}");
+                Console.WriteLine($"Nome: {item.Nome} - Numero: {item.Telefone}");
             }
 
-            Mensagem msg = new Mensagem();
+            // Mensagem msg = new Mensagem();
             // msg.Enviar(ctt);
 
             
